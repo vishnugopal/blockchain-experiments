@@ -7,7 +7,7 @@ class ProofWorker
   RANDOM_SEED_LENGTH = 100
   
   attr_reader :winning_hash, :logger, :difficulty, :random_seed
-  attr_writer :pending_facts
+  attr_writer :pending_facts, :previous_block_id
   
   def initialize(options = {})
     @logger = Logger.new(options.delete(:logger) || STDOUT)
@@ -20,8 +20,15 @@ class ProofWorker
     @pending_facts = pending_facts.to_json
   end
   
+  def previous_block_id=(previous_block_id)
+    raise ArgumentError, "Previous Block ID must be a Number" unless previous_block_id.is_a? Numeric
+
+    @previous_block_id = previous_block_id.to_json
+  end
+  
   def find
     raise ArgumentError, "Pending Facts has not been set" unless @pending_facts
+    raise ArgumentError, "Previous Block ID has not been set" unless @previous_block_id
   
     hash = ""
     iteration = 1
@@ -46,6 +53,6 @@ class ProofWorker
 
   def proof_of_work 
     @random_seed = random_string
-    Digest::SHA2.hexdigest(Digest::SHA2.hexdigest("#{@random_seed}#{@pending_facts}"))
+    Digest::SHA2.hexdigest(Digest::SHA2.hexdigest("#{@random_seed}#{@pending_facts}#{@previous_block_id}"))
   end
 end
