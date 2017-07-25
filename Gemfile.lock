@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    git-version-bump (0.15.1)
+    merkle-hash-tree (0.1.1)
+      git-version-bump
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  merkle-hash-tree
+
+BUNDLED WITH
+   1.15.1
