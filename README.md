@@ -5,22 +5,23 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
 ## TODO
 
 * Write a Key class to model Public/Private ownership
-  * name
-  * Generate signatures from keys
-  * & verify em
+  * name ✔︎
+  * Generate signatures from keys ✔︎
+  * & verify em ✔︎
+  * TODO: serialize to file.
 * Write a Transaction class to model everything in Transactions
   * Transaction Structure
     * Inputs
     * Outputs
-  * Output transaction (UTXO)
+  * Transaction Output (UTXO)
     * Amount
     * Public key
-  * Input Transaction (Transactions to spend)
+  * Transaction Input (Transactions to spend)
     * Transaction hash of UTXO
     * Signature
   * Coinbase Transaction (This is how coins are awarded during mining)
-    * Input Transaction does not have signature or transaction hash
-    * Output Transaction is the same. 
+    * Transaction Input does not have signature or transaction hash, instead is marked coinbase.
+    * Transaction Output is the same. 
   * See also: http://chimera.labs.oreilly.com/books/1234000001802/ch05.html#tx_inputs_outputs
   * Transaction Fee = Inputs - Outputs
 * Write a MerkleTreeGenerator to generate a Merkle tree from a set of transactions. This should be doable using the merkle-hash-tree gem.
