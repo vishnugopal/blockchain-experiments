@@ -9,21 +9,25 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
   * Generate signatures from keys ✔︎
   * & verify em ✔︎
   * TODO: serialize to file.
+  * See: https://github.com/augustl/ruby-openssl-cheat-sheet
 * Write a Transaction class to model everything in Transactions
   * Transaction Structure
-    * Inputs
-    * Outputs
+    * Inputs ✔︎
+    * Outputs ✔︎
   * Transaction Output (UTXO)
-    * Amount
-    * Public key
+    * Amount ✔︎
+    * Public key ✔︎
   * Transaction Input (Transactions to spend)
-    * Transaction hash of UTXO
-    * Signature
+    * Transaction hash of UTXO ✔︎
+    * Signature ✔︎
   * Coinbase Transaction (This is how coins are awarded during mining)
-    * Transaction Input does not have signature or transaction hash, instead is marked coinbase.
-    * Transaction Output is the same. 
+    * Transaction Input does not have signature or transaction hash, instead is marked coinbase. ✔︎
+    * Transaction Output is the same. ✔︎
+  * Serialize a transaction so that a hash can be generated ✔︎
   * See also: http://chimera.labs.oreilly.com/books/1234000001802/ch05.html#tx_inputs_outputs
-  * Transaction Fee = Inputs - Outputs
+  * Transaction Fee = Inputs - Outputs (excluding Coinbase)
+  * Transaction Net Credit = Transaction Fee + Coinbase
+* Write a UnspentTransactions that processes a set of transactions and mark it spent or not.
 * Write a MerkleTreeGenerator to generate a Merkle tree from a set of transactions. This should be doable using the merkle-hash-tree gem.
 * Rename Proof Worker to Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header
   * Tweak difficulty based on mining time.

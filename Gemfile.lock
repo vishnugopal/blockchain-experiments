@@ -27,6 +27,8 @@ GEM
       git-version-bump
     method_source (0.8.2)
     minitest (5.10.3)
+    minitest-assert_errors (0.1.0)
+      minitest
     minitest-rg (5.2.0)
       minitest (~> 5.0)
     nenv (0.3.0)
@@ -53,6 +55,7 @@ DEPENDENCIES
   guard
   guard-minitest
   merkle-hash-tree
+  minitest-assert_errors
   minitest-rg
   terminal-notifier-guard
 
