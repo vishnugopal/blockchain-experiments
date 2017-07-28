@@ -9,7 +9,6 @@ class Key
   
   def generate
     @rsa_key = OpenSSL::PKey::RSA.new(2048)
-    cipher =  OpenSSL::Cipher::Cipher.new('des3')
     @public_key = @rsa_key.public_key
   end
   

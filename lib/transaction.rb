@@ -34,6 +34,10 @@ class Transaction
     
     @serialized_form.to_json
   end
+  
+  def hash
+    Digest::SHA2.digest(Digest::SHA2.digest(serialize)).unpack("H*")[0]
+  end
 end
 
 class TransactionOutput

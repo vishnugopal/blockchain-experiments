@@ -27,14 +27,18 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
   * See also: http://chimera.labs.oreilly.com/books/1234000001802/ch05.html#tx_inputs_outputs
   * Transaction Fee = Inputs - Outputs (excluding Coinbase)
   * Transaction Net Credit = Transaction Fee + Coinbase
-* Write a UnspentTransactions that processes a set of transactions and mark it spent or not.
-* Write a MerkleTreeGenerator to generate a Merkle tree from a set of transactions. This should be doable using the merkle-hash-tree gem.
-* Rename Proof Worker to Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header
-  * Tweak difficulty based on mining time.
-* Build a Block Constructor
+* Write a MerkleTreeGenerator to generate a Merkle tree from a set of transactions. This should be doable using the merkle-hash-tree gem. ✔︎
+  * Make the MerkleTree Structure serializable. ✔︎
+* Build a Block
   * Block Header
   * Transactions
   * Also build the Genesis Block
+  * see: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html
+* Build a BlockChain
+  * Parent -> Child
+  * Handle forks?
+* Build a Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header
+  * Tweak difficulty based on mining time.
 
 * Now, proceed to write daemons that talk to each other.
 
@@ -44,7 +48,8 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
   * Validates transactions
     * http://chimera.labs.oreilly.com/books/1234000001802/ch08.html#tx_verification
   * Records them in the transaction pool
-  
+  * Add UTXOs to UTXO pool and marks them as spent or not.
+
 * Build a BlockAggregator
   * Validates new blocks: http://chimera.labs.oreilly.com/books/1234000001802/ch08.html#_validating_a_new_block
   * Validates each transaction using TransactionValidator
