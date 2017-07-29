@@ -29,12 +29,34 @@ describe Block do
   end
 
   it 'constructs a block with header and transactions' do
-    block = Block.new(block_header: @block_header, transaction_tree: @transaction_tree)
+    block = Block.new(block_header: @block_header,
+                      transaction_tree: @transaction_tree,
+                      hash: 'a')
     proc {
-      Block.new(block_header: @block_header, transaction_tree: [])
+      Block.new(block_header: @block_header,
+                transaction_tree: [],
+                hash: 'a')
     }.must_have_error(/transaction tree/, ArgumentError)
     proc {
-      Block.new(block_header: '', transaction_tree: @transaction_tree)
+      Block.new(block_header: '',
+                transaction_tree: @transaction_tree,
+                hash: 'a')
     }.must_have_error(/block header/, ArgumentError)
+  end
+
+  it 'takes in a parent' do
+    proc {
+      Block.new(block_header: @block_header,
+                transaction_tree: @transaction_tree,
+                hash: 'a',
+                parent: 'a')
+    }.must_have_error(/parent/, ArgumentError)
+    block = Block.new(block_header: @block_header,
+                      transaction_tree: @transaction_tree,
+                      hash:'a')
+    Block.new(block_header: @block_header,
+              transaction_tree: @transaction_tree,
+              hash: 'a',
+              parent: block)
   end
 end

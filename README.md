@@ -32,12 +32,15 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
 * Build a Block ✔︎
   * Block Header ✔︎
   * Transactions ✔︎
-  * Also build the Genesis Block
   * see: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html
 * Build a BlockChain
+  * WIP!
+    * Might need to implement height in Block for longest_chain
   * Parent -> Child, Child. but Child -> Parent
   * longest_chain ..?
   * load and save to file?
+  * Build the Genesis Block ✔︎
+  * See: http://chimera.labs.oreilly.com/books/1234000001802/ch08.html#_validating_a_new_block
 * Build a Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header ✔︎
   * Tweak difficulty based on mining time.
 

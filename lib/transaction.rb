@@ -78,7 +78,15 @@ class TransactionInput
 end
 
 class TransactionCoinbase
+  def initialize(message: nil)
+    @message = message
+  end
+
   def serialize
-    { type: 'coinbase' }
+    if @message
+      { type: 'coinbase', message: @message }
+    else
+      { type: 'coinbase' }
+    end
   end
 end
