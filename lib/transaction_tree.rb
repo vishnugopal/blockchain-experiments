@@ -10,7 +10,8 @@ class TransactionTree
   end
 
   def <<(transaction)
-    raise ArgumentError, 'transaction must be passed in' unless transaction.is_a? Transaction
+    raise ArgumentError, 'transaction must be passed in' unless
+      transaction.is_a? Transaction
     @transactions << transaction.serialize
     @transactions_hash << transaction.hash
   end

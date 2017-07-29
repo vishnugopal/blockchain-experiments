@@ -29,8 +29,8 @@ class Miner
   end
 
   def nonce_string(length = NONCE_LENGTH)
-    (1..length).inject("") do |a, i|
-      (a ||= "") << ('a'..'z').to_a[rand(26)]
+    (1..length).inject('') do |a, _|
+      a << ('a'..'z').to_a[rand(26)]
     end
   end
 

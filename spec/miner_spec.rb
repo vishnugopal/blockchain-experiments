@@ -16,14 +16,14 @@ describe Miner do
     proc {
       Miner.new(block_header: '')
     }.must_have_error(/block header/, ArgumentError)
-    miner = Miner.new(block_header: @block_header)
+    Miner.new(block_header: @block_header)
   end
 
   it 'mines for a block hash based on the difficulty target' do
     miner = Miner.new(block_header: @block_header)
     result = miner.mine
     result[:hash][0..@block_header.difficulty_target - 1].must_equal(
-    '0' * @block_header.difficulty_target
+      '0' * @block_header.difficulty_target
     )
     result[:block_header].nonce.length.must_equal(
       Miner::NONCE_LENGTH

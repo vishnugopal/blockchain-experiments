@@ -1,11 +1,12 @@
 require_relative 'transaction_tree'
 require 'json'
 
-
 class Block
   def initialize(block_header:, transaction_tree:)
-    raise ArgumentError, 'block header is invalid' unless block_header.is_a? BlockHeader
-    raise ArgumentError, 'transaction tree is invalid' unless transaction_tree.is_a? TransactionTree
+    raise ArgumentError, 'block header is invalid' unless
+      block_header.is_a? BlockHeader
+    raise ArgumentError, 'transaction tree is invalid' unless
+      transaction_tree.is_a? TransactionTree
   end
 end
 
