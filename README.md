@@ -38,7 +38,7 @@ This is a simple, cleanroom implementation of Blockchain in Ruby with minimal de
   * Parent -> Child, Child. but Child -> Parent
   * longest_chain ..?
   * load and save to file?
-* Build a Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header
+* Build a Miner, and needs to be tweaked slightly to include Previous Block Hash, Merkle Root, Timestamp, Difficulty Target, Nonce. See: http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#block_header ✔︎
   * Tweak difficulty based on mining time.
 
 * Now, proceed to write daemons that talk to each other.

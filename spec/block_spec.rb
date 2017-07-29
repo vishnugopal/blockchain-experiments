@@ -7,7 +7,7 @@ describe Block do
       previous_block_hash: 'x',
       merkle_root: 'y',
       timestamp: 'z',
-      difficulty_target: 'a',
+      difficulty_target: 2,
       nonce: 'b'
     )
 
@@ -22,7 +22,7 @@ describe Block do
         :previous_block_hash=>"x",
         :merkle_root=>"y",
         :timestamp=>"z",
-        :difficulty_target=>"a",
+        :difficulty_target=>2,
         :nonce=>"b"
       }.to_json
     )
